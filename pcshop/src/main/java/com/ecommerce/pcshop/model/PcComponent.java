@@ -6,31 +6,34 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Laptop {
+public class PcComponent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String type;        // e.g., CPU, GPU, RAM
     private String brand;
     private String model;
     private double price;
     private String description;
     private String imageUrl;
 
-    public Laptop() {
+    // Constructors, Getters, Setters
+
+    public PcComponent() {
 
     }
 
-    public Laptop(Long id, String brand, String model, double price, String description, String imageUrl) {
+    public PcComponent(Long id, String type, String brand, String model, double price, String description, String imageUrl) {
         this.id = id;
+        this.type = type;
         this.brand = brand;
         this.model = model;
         this.price = price;
         this.description = description;
         this.imageUrl = imageUrl;
     }
-// Getters and Setters
 
     public Long getId() {
         return id;
@@ -38,6 +41,14 @@ public class Laptop {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getBrand() {
